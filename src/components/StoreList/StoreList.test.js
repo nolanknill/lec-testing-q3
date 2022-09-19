@@ -61,4 +61,14 @@ describe("<StoreList />", () => {
         userEvent.click(screen.getByRole("button"));
         expect(mockLoadData).toBeCalled();
     });
+
+    it("should match the snapshot", () => {
+        const snapShot = render(<StoreList
+            stores={[]}
+            sale={true}
+            loadData={ jest.fn() }
+        />)
+
+        expect(snapShot).toMatchSnapshot();
+    });
 })
