@@ -2,7 +2,7 @@ import StoreCard from "../StoreCard/StoreCard";
 
 const StoreList = ({ stores, sale, loadData }) => {
     return (
-        <div className={sale ? "sale" : ""}>
+        <section className={sale ? "sale" : ""}>
             <h2>Store List</h2>
 
             {stores.map((item) => (
@@ -10,7 +10,7 @@ const StoreList = ({ stores, sale, loadData }) => {
             ))}
 
             <button onClick={loadData}>load more stores</button>
-        </div>
+        </section>
     );
 }
 
