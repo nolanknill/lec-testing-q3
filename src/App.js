@@ -11,7 +11,10 @@ function App() {
   };
   
   return (
-    <StoreList stores={stores} sale={true} loadData={loadStores} />
+    <>
+      <h1>Lecture: Testing</h1>
+      <StoreList stores={stores} sale={true} loadData={loadStores} />
+    </>
   );
 }
 
