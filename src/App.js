@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import StoreList from "./components/StoreList/StoreList";
+import storesData, { generateStoreWithId } from "./data/stores";
+import { useState } from 'react';
 
 function App() {
+  const [stores, setStores] = useState(storesData);
+
+  const loadStores = () => {
+    const nextId = stores[stores.length - 1].id + 1;
+    setStores([...stores, generateStoreWithId(nextId)]);
+  };
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StoreList stores={stores} sale={true} loadData={loadStores} />
   );
 }
 
